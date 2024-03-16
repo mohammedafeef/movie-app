@@ -8,10 +8,11 @@ import Badge from './components/atoms/Badge';
 import BottomNavbar from './components/organisms/BottomNavBar';
 import PageHeader from './components/organisms/PageHeader';
 import BasicMovieCard from './components/atoms/BasicMovieCard';
+import DetailedMovieCard from './components/molecules/DetailedMovieCard';
 
 function App() {
 	return (
-		<div className="bg-gray-600 w-screen h-screen p-6 flex flex-col gap-y-2 focus-visible:outline-none">
+		<div className="bg-gray-600 w-screen p-6 flex flex-col gap-y-2 focus-visible:outline-none overflow-x-hidden">
 			<div className="flex gap-x-2">
 				<Button>Default</Button>
 				<Button variant="rounded">Rounded</Button>
@@ -35,6 +36,11 @@ function App() {
 				<PageHeader />
 			</div>
 			<BasicMovieCard
+				title="The Godfather"
+				poster_path="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+				id={1}
+			/>
+			<DetailedMovieCard
 				title="The Godfather"
 				poster_path="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
 				id={1}
