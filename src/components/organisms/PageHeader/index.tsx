@@ -14,7 +14,12 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 			<h1 className="m-0 pl-4 text-2xl font-semibold text-black flex-1">
 				Movie App
 			</h1>
-			<Button className="px-4 h-full flex items-center">Sort & Filter</Button>
+			<Button
+				className="px-4 h-full flex items-center"
+				onClick={props.onSortClick}
+			>
+				Sort & Filter
+			</Button>
 		</header>
 	);
 };
