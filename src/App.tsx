@@ -6,6 +6,7 @@ import DatePicker from './components/atoms/DatePicker';
 import Slider from './components/atoms/Slider';
 import Badge from './components/atoms/Badge';
 import BottomNavbar from './components/organisms/BottomNavBar';
+import PageHeader from './components/organisms/PageHeader';
 
 function App() {
 	return (
@@ -27,7 +28,10 @@ function App() {
 				<Badge>Default</Badge>
 			</div>
 			<div className="h-[100px]">
-				<BottomNavbar/>
+				<BottomNavbar />
+			</div>
+			<div className="h-[100px]">
+				<PageHeader />
 			</div>
 		</div>
 	);
