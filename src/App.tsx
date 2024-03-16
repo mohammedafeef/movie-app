@@ -5,6 +5,7 @@ import Select from './components/atoms/Select';
 import DatePicker from './components/atoms/DatePicker';
 import Slider from './components/atoms/Slider';
 import Badge from './components/atoms/Badge';
+import BottomNavbar from './components/organisms/BottomNavBar';
 
 function App() {
 	return (
@@ -24,6 +25,9 @@ function App() {
 			<div className="flex gap-x-2">
 				<Badge selected>Selected</Badge>
 				<Badge>Default</Badge>
+			</div>
+			<div className="h-[100px]">
+				<BottomNavbar/>
 			</div>
 		</div>
 	);
