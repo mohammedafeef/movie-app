@@ -9,10 +9,12 @@ import BottomNavbar from './components/organisms/BottomNavBar';
 import PageHeader from './components/organisms/PageHeader';
 import BasicMovieCard from './components/atoms/BasicMovieCard';
 import DetailedMovieCard from './components/molecules/DetailedMovieCard';
+import FilterSidebar from './components/organisms/FilterSidebar';
 
 function App() {
 	return (
 		<div className="bg-gray-600 w-screen p-6 flex flex-col gap-y-2 focus-visible:outline-none overflow-x-hidden">
+			<FilterSidebar/>
 			<div className="flex gap-x-2">
 				<Button>Default</Button>
 				<Button variant="rounded">Rounded</Button>
