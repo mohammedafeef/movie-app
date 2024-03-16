@@ -3,6 +3,7 @@ import './App.css';
 import Button from './components/atoms/Button';
 import Select from './components/atoms/Select';
 import DatePicker from './components/atoms/DatePicker';
+import Slider from './components/atoms/Slider';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				]}
 			/>
 			<DatePicker />
+			<Slider min="0" max="5" step={'1'} />
 		</div>
 	);
 }
