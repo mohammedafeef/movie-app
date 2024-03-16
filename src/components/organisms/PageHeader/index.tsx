@@ -1,9 +1,16 @@
 import React from 'react';
 import Button from '../../atoms/Button';
+import { PageHeaderProps } from './types';
+import { cn } from '../../../libs/cn';
 
-const PageHeader: React.FC = () => {
+const PageHeader: React.FC<PageHeaderProps> = (props) => {
 	return (
-		<header className="flex w-full h-full items-center drop-shadow-md bg-white">
+		<header
+			className={cn(
+				'flex w-full h-full items-center drop-shadow-md bg-white',
+				props.className
+			)}
+		>
 			<h1 className="m-0 pl-4 text-2xl font-semibold text-black flex-1">
 				Movie App
 			</h1>

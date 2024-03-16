@@ -28,5 +28,5 @@
 			"@services/*": ["src/services/*"]
 		}
 	},
-	"include": ["src"]
+	"include": ["**/*.ts", "**/*.tsx"]
 }
