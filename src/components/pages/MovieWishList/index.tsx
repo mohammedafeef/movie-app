@@ -1,4 +1,4 @@
-import DetailedMovieCard from '../../molecules/DetailedMovieCard';
+import BasicMovieCard from '../../atoms/BasicMovieCard';
 import PageLayout from '../../templates/PageLayout';
 import React from 'react';
 
@@ -23,14 +23,15 @@ const movieList = [
 	},
 ];
 
-const MovieList: React.FC = () => {
+const MovieWishList: React.FC = () => {
 	return (
 		<PageLayout className="gap-y-3">
+			<h2 className="text-xl font-bold text-black m-0">Wish List</h2>
 			{movieList.map((movie) => (
-				<DetailedMovieCard key={movie.id} {...movie} />
+				<BasicMovieCard key={movie.id} {...movie} />
 			))}
 		</PageLayout>
 	);
 };
 
-export default MovieList;
+export default MovieWishList;

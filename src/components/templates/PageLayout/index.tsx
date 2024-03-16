@@ -3,7 +3,7 @@ import PageHeader from '../../../components/organisms/PageHeader';
 import React from 'react';
 import { PageLayoutProps } from './types';
 import { useController } from './useController';
-import FilterSidebar from '@organisms/FilterSidebar';
+import FilterSidebar from '../../organisms/FilterSidebar';
 import { cn } from '../../../libs/cn';
 
 const PageLayout: React.FC<PageLayoutProps> = (props) => {
