@@ -15,18 +15,17 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
-		"baseUrl": ".",
+		"baseUrl": "./src",
 		"paths": {
-			"@/*": ["src/*"],
-			"@atoms/*": ["src/components/atoms/*"],
-			"@molecules/*": ["src/components/molecules/*"],
-			"@organisms/*": ["src/components/organisms/*"],
-			"@templates/*": ["src/components/templates/*"],
-			"@pages/*": ["src/pages/*"],
-			"@utils/*": ["src/utils/*"],
-			"@libs/*": ["src/libs/*"],
-			"@services/*": ["src/services/*"]
+			"@atoms/*": ["components/atoms/*"],
+			"@molecules/*": ["components/molecules/*"],
+			"@organisms/*": ["components/organisms/*"],
+			"@templates/*": ["components/templates/*"],
+			"@pages/*": ["pages/*"],
+			"@utils/*": ["utils/*"],
+			"@libs/*": ["libs/*"],
+			"@services/*": ["services/*"]
 		}
 	},
-	"include": ["**/*.ts", "**/*.tsx"]
+	"include": ["src/**/*"]
 }
