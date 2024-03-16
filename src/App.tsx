@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Button from './components/atoms/Button';
 import Select from './components/atoms/Select';
+import DatePicker from './components/atoms/DatePicker';
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 					{ value: '2', label: 'Two' },
 				]}
 			/>
+			<DatePicker />
 		</div>
 	);
 }
