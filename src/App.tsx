@@ -7,6 +7,7 @@ import Slider from './components/atoms/Slider';
 import Badge from './components/atoms/Badge';
 import BottomNavbar from './components/organisms/BottomNavBar';
 import PageHeader from './components/organisms/PageHeader';
+import BasicMovieCard from './components/atoms/BasicMovieCard';
 
 function App() {
 	return (
@@ -33,6 +34,11 @@ function App() {
 			<div className="h-[100px]">
 				<PageHeader />
 			</div>
+			<BasicMovieCard
+				title="The Godfather"
+				poster_path="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+				id={1}
+			/>
 		</div>
 	);
 }
