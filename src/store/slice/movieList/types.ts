@@ -1,8 +1,4 @@
-interface Movie {
-	id: number;
-	title: string;
-	poster_path: string;
-}
+import { Movie } from 'store/types';
 
 export interface MoviesListStateType {
 	items: Movie[];
