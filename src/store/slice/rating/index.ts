@@ -2,12 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { MovieRatingStateType, Rating } from './types';
 
 const initialState: MovieRatingStateType = {
-	items: [
-		{
-			id: 1,
-			rating: 3,
-		},
-	],
+	items: [],
 };
 
 const ratingSlice = createSlice({

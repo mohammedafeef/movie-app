@@ -3,20 +3,7 @@ import { MoviesListStateType } from './types';
 import { Movie } from 'store/types';
 
 const initialState: MoviesListStateType = {
-	items: [
-		{
-			id: 1,
-			title: 'The Conjuring',
-			poster_path:
-				'https://resizing.flixster.com/Nx5haL3dpkOg08QLYWQZ-3_z6BQ=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzk2YWNlZDQxLWIyMDMtNDEzNS1iMjVjLTkzNmQxOTQzYTQ4ZC53ZWJw',
-		},
-		{
-			id: 2,
-			title: 'The Conjuring',
-			poster_path:
-				'https://resizing.flixster.com/Nx5haL3dpkOg08QLYWQZ-3_z6BQ=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzk2YWNlZDQxLWIyMDMtNDEzNS1iMjVjLTkzNmQxOTQzYTQ4ZC53ZWJw',
-		},
-	],
+	items: [],
 };
 
 const wishListMoviesSlice = createSlice({
