@@ -8,7 +8,7 @@ import { useController } from './useController';
 import Button from 'components/atoms/Button';
 
 const FilterSidebar: React.FC<FilterSidebarProps> = (props) => {
-	const { values, actions } = useController();
+	const { values, actions } = useController(props);
 	if (!props.isOpen) {
 		return null;
 	}

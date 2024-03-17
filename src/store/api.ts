@@ -11,11 +11,14 @@ export const movieApi = createApi({
 	}),
 	endpoints: (build) => ({
 		getMovies: build.query({
-			query: ({ page }) => ({
+			query: ({ page, filter }) => ({
 				url: '/discover/movie',
 				method: 'GET',
 				params: {
 					page,
+					include_video: true,
+					with_genres: filter.genres,
+					language: filter.language,
 				},
 			}),
 		}),

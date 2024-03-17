@@ -2,17 +2,25 @@ import { useGetGenresQuery, useGetLanguagesQuery } from 'store/api';
 import { getGenres, getLanguages } from 'store/slice/config/selectors';
 import { useSelector } from 'react-redux';
 import { useMemo, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { appStateActions } from 'store/slice/appState';
+import { getFilter } from 'store/slice/appState/selectors';
+import { FilterSidebarProps } from './types';
 
-export const useController = () => {
+export const useController = (props: FilterSidebarProps) => {
 	useGetGenresQuery({});
 	useGetLanguagesQuery({});
+	const dispatch = useDispatch();
+	const filters = useSelector(getFilter);
 	const genres = useSelector(getGenres);
 	const languages = useSelector(getLanguages);
-	const [selectedGenres, setSelectedGenres] = useState<number[]>([]);
-	const [language, setLanguage] = useState('');
-	const [rating, setRating] = useState(0);
-	const [fromDate, setFromDate] = useState('');
-	const [toDate, setToDate] = useState('');
+	const [selectedGenres, setSelectedGenres] = useState<number[]>(
+		filters.genres || []
+	);
+	const [language, setLanguage] = useState(filters.language || '');
+	const [rating, setRating] = useState(filters.rating || 0);
+	const [fromDate, setFromDate] = useState(filters.fromDate || '');
+	const [toDate, setToDate] = useState(filters.toDate || '');
 	const languageOptions = useMemo(() => {
 		if (!languages) {
 			return [];
@@ -54,15 +62,19 @@ export const useController = () => {
 		setRating(0);
 		setFromDate('');
 		setToDate('');
+		dispatch(appStateActions.resetFilter());
 	};
 	const handleSearch = () => {
-		console.log({
-			genres: selectedGenres,
-			fromDate,
-			toDate,
-			language,
-			rating,
-		});
+		dispatch(
+			appStateActions.updateFilter({
+				genres: selectedGenres,
+				language,
+				rating,
+				fromDate,
+				toDate,
+			})
+		);
+		props.onClose();
 	};
 
 	return {

@@ -4,6 +4,7 @@ import favoriteMovies from './slice/favoriteMovies';
 import wishListMovies from './slice/wishListMovies';
 import rating from './slice/rating';
 import config from './slice/config';
+import appState from './slice/appState';
 import { movieApi } from './api';
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
 		wishListMovies,
 		rating,
 		config,
+		appState,
 		[movieApi.reducerPath]: movieApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
