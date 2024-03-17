@@ -6,7 +6,9 @@ const Select: React.FC<SelectProps> = ({ options, ...props }) => {
 	return (
 		<select
 			{...props}
-			className={cn('w-full p-2 text-base bg-gray-400 text-black rounded')}
+			className={cn(
+				'w-full p-2 text-base bg-gray-400 text-black rounded focus-visible:outline-none'
+			)}
 		>
 			{options.map((option) => (
 				<option

@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({ className, variant, ...props }) => {
 				'p-2',
 				{
 					'bg-blue-500 text-xl text-white font-semibold': variant === 'default',
-					'rounded-full bg-gray-300 text-base text-gray-500':
+					'rounded-full bg-gray-300 text-base text-black/90 px-4':
 						variant === 'rounded',
 				},
 				className

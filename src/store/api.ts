@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { configActions } from './slice/config';
 export const movieApi = createApi({
 	reducerPath: 'movieApi',
 	baseQuery: fetchBaseQuery({
@@ -23,12 +24,22 @@ export const movieApi = createApi({
 				url: '/genre/movie/list',
 				method: 'GET',
 			}),
+			onQueryStarted(arg, api) {
+				api.queryFulfilled.then((res) => {
+					api.dispatch(configActions.updateGenres(res.data.genres));
+				});
+			},
 		}),
 		getLanguages: build.query({
 			query: () => ({
 				url: '/configuration/languages',
 				method: 'GET',
 			}),
+			onQueryStarted(arg, api) {
+				api.queryFulfilled.then((res) => {
+					api.dispatch(configActions.updateLanguages(res.data));
+				});
+			},
 		}),
 	}),
 });

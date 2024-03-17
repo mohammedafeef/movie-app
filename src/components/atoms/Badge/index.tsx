@@ -7,9 +7,9 @@ const Badge: React.FC<BadgeProps> = (props) => {
 		<div
 			onClick={props.onSelect}
 			className={cn(
-				'border border-black/75 rounded-full p-2 text-base font-semibold cursor-pointer',
+				'border border-black/75 rounded-full p-2 px-4 text-[15px] font-semibold cursor-pointer',
 				{
-					'bg-blue-400 border-0': props.selected,
+					'bg-blue-400 border-blue-400': props.selected,
 				}
 			)}
 		>
