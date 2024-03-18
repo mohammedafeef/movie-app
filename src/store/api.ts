@@ -20,6 +20,8 @@ export const movieApi = createApi({
 					include_video: true,
 					with_genres: filter.genres,
 					language: filter.language,
+					['release_date.gte']: filter.fromDate,
+					['release_date.lte']: filter.toDate,
 				},
 			}),
 			onQueryStarted(arg, api) {
