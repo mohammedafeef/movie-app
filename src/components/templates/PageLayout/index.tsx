@@ -5,11 +5,15 @@ import { PageLayoutProps } from './types';
 import { useController } from './useController';
 import FilterSidebar from '../../organisms/FilterSidebar';
 import { cn } from '../../../libs/cn';
+import { useOnlineStatus } from 'hooks/useOnlineStatus';
+import { Toaster } from 'react-hot-toast';
 
 const PageLayout: React.FC<PageLayoutProps> = (props) => {
 	const { values, actions } = useController();
+	useOnlineStatus();
 	return (
 		<div className="flex flex-col w-full h-screen bg-gray-400 py-20">
+			<Toaster />
 			<PageHeader
 				onSortClick={actions.openFilter}
 				className="h-20 fixed top-0 left-0 right-0"
