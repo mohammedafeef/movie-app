@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { configActions } from './slice/config';
+import { movieListActions } from './slice/movieList';
 export const movieApi = createApi({
 	reducerPath: 'movieApi',
 	baseQuery: fetchBaseQuery({
@@ -11,7 +12,7 @@ export const movieApi = createApi({
 	}),
 	endpoints: (build) => ({
 		getMovies: build.query({
-			query: ({ page, filter }) => ({
+			query: ({ page = 1, filter }) => ({
 				url: '/discover/movie',
 				method: 'GET',
 				params: {
@@ -21,6 +22,11 @@ export const movieApi = createApi({
 					language: filter.language,
 				},
 			}),
+			onQueryStarted(arg, api) {
+				api.queryFulfilled.then((res) => {
+					api.dispatch(movieListActions.loadData(res.data));
+				});
+			},
 		}),
 		getGenres: build.query({
 			query: () => ({
@@ -44,8 +50,18 @@ export const movieApi = createApi({
 				});
 			},
 		}),
+		getVideo: build.query({
+			query: ({ id }) => ({
+				url: `/movie/${id}/videos`,
+				method: 'GET',
+			}),
+		}),
 	}),
 });
 
-export const { useGetMoviesQuery, useGetGenresQuery, useGetLanguagesQuery } =
-	movieApi;
+export const {
+	useGetMoviesQuery,
+	useGetGenresQuery,
+	useGetLanguagesQuery,
+	usePrefetch,
+} = movieApi;
