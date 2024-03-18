@@ -4,7 +4,7 @@ import { getImageFullPath } from 'utils';
 
 const BasicMovieCard: React.FC<BasicMovieCardProps> = (props) => {
 	return (
-		<div className="w-full min-h-[300px] max-h-[300px] relative">
+		<div className="w-full min-h-[300px] max-h-[300px] relative overflow-hidden">
 			<img
 				src={getImageFullPath(props.poster_path)}
 				className="w-full h-full object-fill"

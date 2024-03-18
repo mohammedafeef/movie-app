@@ -25,19 +25,25 @@ export const useController = () => {
 		filter: filters,
 	});
 	const combined = useMemo(() => {
-		return [
-			...(prevResult.data?.results || []),
-			...(currentResult.data?.results || []),
-			...(nextResult.data?.results || []),
-		];
+		return {
+			totalPage: currentResult.data?.total_pages || 0,
+			totalResult: currentResult.data?.total_results || 0,
+			page: currentResult.data?.page || currentPage,
+			result: [
+				...(prevResult.data?.results || []),
+				...(currentResult.data?.results || []),
+				...(nextResult.data?.results || []),
+			],
+		};
 	}, [prevResult, currentResult, nextResult, currentPage]);
 	const handlePageChange = () => {
+		console.log('hit bottom');
 		setCurrentPage(currentPage + 1);
 	};
 
 	useEffect(() => {
 		if (combined) {
-			dispatch(movieListActions.loadData(combined));
+			dispatch(movieListActions.loadData(combined.result));
 		}
 	}, [combined]);
 	useEffect(() => {
@@ -48,6 +54,9 @@ export const useController = () => {
 	return {
 		values: {
 			movieList: items,
+			totalPage: combined?.totalPage,
+			totalResult: combined?.totalResult,
+			page: combined?.page,
 		},
 		actions: {
 			handlePageChange,

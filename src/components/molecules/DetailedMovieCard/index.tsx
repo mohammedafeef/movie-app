@@ -12,7 +12,7 @@ import { useController } from './useController';
 const DetailedMovieCard: React.FC<DetailedMovieCardProps> = (props) => {
 	const { values, actions } = useController(props);
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col overflow-hidden">
 			<BasicMovieCard {...props} />
 			<div className="flex p-2 bg-white">
 				<div className="flex gap-x-1 flex-1 items-center ">
