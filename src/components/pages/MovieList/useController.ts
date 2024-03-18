@@ -1,21 +1,25 @@
 import { getMovieList } from 'store/slice/movieList/selectors';
 import { useSelector } from 'react-redux';
-import { useGetMoviesQuery, usePrefetch } from 'store/api';
+import { movieApi, useGetMoviesQuery, usePrefetch } from 'store/api';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { appScreens, appStateActions } from 'store/slice/appState';
 import { getFilter } from 'store/slice/appState/selectors';
+import { UnknownAction } from '@reduxjs/toolkit';
 
 export const useController = () => {
 	const { items } = useSelector(getMovieList);
 	const dispatch = useDispatch();
 	const filters = useSelector(getFilter);
 	usePrefetch('getMovies');
-	// const [currentPage, setCurrentPage] = useState(1);
 	useGetMoviesQuery({ page: 1, filter: filters });
 	const handlePageChange = () => {
-		console.log('called');
-		// dispatch(movieApi.endpoints.getMovies.initiate({ page: 1, filter: filters }));
+		dispatch(
+			movieApi.endpoints.getMovies.initiate({
+				page: items.page + 1,
+				filter: filters,
+			}) as unknown as UnknownAction
+		);
 	};
 
 	useEffect(() => {
